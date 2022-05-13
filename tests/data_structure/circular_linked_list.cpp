@@ -78,3 +78,19 @@ TEST(CIRCULAR_LINKED_LIST, GET)
     EXPECT_EQ(circular_linked_list_get(circular_linked_list, 2)->data, (void *)3);
     circular_linked_list_destroy(circular_linked_list);
 }
+
+// 测试遍历循环链表
+void circular_linked_list_print_data(void *data)
+{
+    EXPECT_EQ(data, (void *)1);
+}
+
+TEST(CIRCULAR_LINKED_LIST, FOREACH)
+{
+    CircularLinkedList *circular_linked_list = circular_linked_list_create();
+    circular_linked_list_insert(circular_linked_list, (void *)1, 0);
+    circular_linked_list_insert(circular_linked_list, (void *)1, 1);
+    circular_linked_list_insert(circular_linked_list, (void *)1, 2);
+    circular_linked_list_foreach(circular_linked_list, circular_linked_list_print_data);
+    circular_linked_list_destroy(circular_linked_list);
+}

@@ -25,10 +25,10 @@ __export LinkedList *linked_list_create();
 // 销毁单链表
 __export void linked_list_destroy(LinkedList *list);
 
-// 从单列表头部插入节点
+// 从单链表头部插入节点
 __export void linked_list_insert_head(LinkedList *list, void *data);
 
-// 从单列表尾部插入节点
+// 从单链表尾部插入节点
 __export void linked_list_insert_tail(LinkedList *list, void *data);
 
 // 从单链表的指定位置插入节点
@@ -39,5 +39,8 @@ __export void linked_list_remove(LinkedList *list, unsigned int index);
 
 // 从单链表的指定位置获取节点
 __export LinkedListNode *linked_list_get(LinkedList *list, unsigned int index);
+
+// 遍历单链表
+__export void linked_list_foreach(LinkedList *list, void (*callback)(void *data));
 
 #endif // __LINKED_LIST_H__

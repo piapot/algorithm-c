@@ -1,6 +1,6 @@
 #include "data_structure/circular_linked_list.h"
 
-// 创建循环列表
+// 创建循环链表
 CircularLinkedList *circular_linked_list_create()
 {
     CircularLinkedList *list = (CircularLinkedList *)malloc(sizeof(CircularLinkedList));
@@ -10,7 +10,7 @@ CircularLinkedList *circular_linked_list_create()
     return list;
 }
 
-// 销毁循环列表
+// 销毁循环链表
 void circular_linked_list_destroy(CircularLinkedList *list)
 {
     CircularLinkedListNode *node = list->head;
@@ -23,7 +23,7 @@ void circular_linked_list_destroy(CircularLinkedList *list)
     free(list);
 }
 
-// 从循环列表头部插入节点
+// 从循环链表头部插入节点
 void circular_linked_list_insert_head(CircularLinkedList *list, void *data)
 {
     CircularLinkedListNode *node = (CircularLinkedListNode *)malloc(sizeof(CircularLinkedListNode));
@@ -37,7 +37,7 @@ void circular_linked_list_insert_head(CircularLinkedList *list, void *data)
     list->size++;
 }
 
-// 从循环列表尾部插入节点
+// 从循环链表尾部插入节点
 void circular_linked_list_insert_tail(CircularLinkedList *list, void *data)
 {
     CircularLinkedListNode *node = (CircularLinkedListNode *)malloc(sizeof(CircularLinkedListNode));
@@ -55,7 +55,7 @@ void circular_linked_list_insert_tail(CircularLinkedList *list, void *data)
     list->size++;
 }
 
-// 从循环列表的指定位置插入节点
+// 从循环链表的指定位置插入节点
 void circular_linked_list_insert(CircularLinkedList *list, void *data, unsigned int index)
 {
     if (index == 0)
@@ -81,7 +81,7 @@ void circular_linked_list_insert(CircularLinkedList *list, void *data, unsigned 
     }
 }
 
-// 从循环列表的指定位置删除节点
+// 从循环链表的指定位置删除节点
 void circular_linked_list_remove(CircularLinkedList *list, unsigned int index)
 {
     if (index == 0)
@@ -110,7 +110,7 @@ void circular_linked_list_remove(CircularLinkedList *list, unsigned int index)
     list->size--;
 }
 
-// 从循环列表的指定位置获取节点
+// 从循环链表的指定位置获取节点
 CircularLinkedListNode *circular_linked_list_get(CircularLinkedList *list, unsigned int index)
 {
     CircularLinkedListNode *node = list->head;
@@ -119,4 +119,14 @@ CircularLinkedListNode *circular_linked_list_get(CircularLinkedList *list, unsig
         node = node->next;
     }
     return node;
+}
+
+__export void circular_linked_list_foreach(CircularLinkedList *list, void (*callback)(void *data))
+{
+    CircularLinkedListNode *node = list->head;
+    while (node)
+    {
+        callback(node->data);
+        node = node->next;
+    }
 }

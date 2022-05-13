@@ -67,3 +67,19 @@ TEST(LINKED_LIST_TEST, GET)
     EXPECT_EQ(linked_list_get(linked_list, 1)->data, (void *)2);
     linked_list_destroy(linked_list);
 }
+
+// 测试遍历单链表
+void linked_list_print_data(void *data)
+{
+    EXPECT_EQ(data, (void *)1);
+}
+
+TEST(LINKED_LIST_TEST, FOREACH)
+{
+    LinkedList *linked_list = linked_list_create();
+    linked_list_insert(linked_list, (void *)1, 0);
+    linked_list_insert(linked_list, (void *)1, 1);
+    linked_list_insert(linked_list, (void *)1, 2);
+    linked_list_foreach(linked_list, linked_list_print_data);
+    linked_list_destroy(linked_list);
+}
