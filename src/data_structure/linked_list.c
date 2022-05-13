@@ -23,7 +23,7 @@ void linked_list_destroy(LinkedList *list)
     free(list);
 }
 
-// 在单链表头部插入节点
+// 从单列表头部插入节点
 void linked_list_insert_head(LinkedList *list, void *data)
 {
     LinkedListNode *node = (LinkedListNode *)malloc(sizeof(LinkedListNode));
@@ -37,7 +37,7 @@ void linked_list_insert_head(LinkedList *list, void *data)
     list->size++;
 }
 
-// 在单链表尾部插入节点
+// 从单列表尾部插入节点
 void linked_list_insert_tail(LinkedList *list, void *data)
 {
     LinkedListNode *node = (LinkedListNode *)malloc(sizeof(LinkedListNode));
@@ -55,7 +55,7 @@ void linked_list_insert_tail(LinkedList *list, void *data)
     list->size++;
 }
 
-// 在单链表指定位置插入节点
+// 从单列表的指定位置插入节点
 void linked_list_insert(LinkedList *list, void *data, unsigned int index)
 {
     if (index == 0)
@@ -82,7 +82,7 @@ void linked_list_insert(LinkedList *list, void *data, unsigned int index)
     }
 }
 
-// 删除单链表指定位置的节点
+// 从单列表的指定位置删除节点
 void linked_list_remove(LinkedList *list, unsigned int index)
 {
     if (index == 0)
@@ -118,7 +118,7 @@ void linked_list_remove(LinkedList *list, unsigned int index)
     }
 }
 
-// 获取单链表指定位置的节点
+// 从单列表的指定位置获取节点
 LinkedListNode *linked_list_get(LinkedList *list, unsigned int index)
 {
     LinkedListNode *node = list->head;

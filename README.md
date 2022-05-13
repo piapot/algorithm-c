@@ -1,13 +1,18 @@
 # algorithm-c
 
+## install deps
+```
+vcpkg install gtest
+```
+
 ## build
 
-```bash
+```
 xmake
 ```
 
 ## test
 
-```bash
+```
 xmake && xmake run test
 ```
