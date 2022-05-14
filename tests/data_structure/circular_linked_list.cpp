@@ -2,7 +2,6 @@
 
 extern "C"
 {
-#include <stdlib.h>
 #include "data_structure/circular_linked_list.h"
 }
 

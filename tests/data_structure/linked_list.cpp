@@ -2,7 +2,6 @@
 
 extern "C"
 {
-#include <stdlib.h>
 #include "data_structure/linked_list.h"
 }
 
