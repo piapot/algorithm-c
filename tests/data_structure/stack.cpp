@@ -10,7 +10,8 @@ TEST(STACK, CREATE)
 {
     Stack *stack = stack_create(3);
     EXPECT_TRUE(stack != NULL);
-    EXPECT_EQ(stack->size, 3);
+    EXPECT_EQ(stack->capacity, 3);
+    EXPECT_EQ(stack->size, 0);
     EXPECT_EQ(stack->top, -1);
     stack_destroy(stack);
 }
