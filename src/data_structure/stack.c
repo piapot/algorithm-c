@@ -4,6 +4,10 @@
 Stack *stack_create(unsigned int capacity)
 {
     Stack *stack = (Stack *)malloc(sizeof(Stack));
+    if (stack == NULL)
+    {
+        return NULL;
+    }
     stack->capacity = capacity;
     stack->size = 0;
     stack->top = -1;
@@ -14,6 +18,10 @@ Stack *stack_create(unsigned int capacity)
 // 销毁栈
 void stack_destroy(Stack *stack)
 {
+    if (stack == NULL)
+    {
+        return;
+    }
     free(stack->data);
     free(stack);
 }
@@ -21,6 +29,10 @@ void stack_destroy(Stack *stack)
 // 压栈
 void stack_push(Stack *stack, void *data)
 {
+    if (stack == NULL)
+    {
+        return;
+    }
     if (stack_is_full(stack))
     {
         return;
@@ -33,6 +45,10 @@ void stack_push(Stack *stack, void *data)
 // 出栈
 void *stack_pop(Stack *stack)
 {
+    if (stack == NULL)
+    {
+        return NULL;
+    }
     if (stack_is_empty(stack))
     {
         return NULL;
@@ -46,6 +62,10 @@ void *stack_pop(Stack *stack)
 // 获取栈顶元素
 void *stack_top(Stack *stack)
 {
+    if (stack == NULL)
+    {
+        return NULL;
+    }
     if (stack_is_empty(stack))
     {
         return NULL;
@@ -56,11 +76,19 @@ void *stack_top(Stack *stack)
 // 栈是否空
 int stack_is_empty(Stack *stack)
 {
+    if (stack == NULL)
+    {
+        return 1;
+    }
     return stack->size == 0;
 }
 
 // 栈是否满
 int stack_is_full(Stack *stack)
 {
+    if (stack == NULL)
+    {
+        return 1;
+    }
     return stack->size == stack->capacity;
 }
